@@ -1,0 +1,86 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+media/
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# PostgreSQL
+*.pid
+*.dump
+*.rdb
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+
+# Vite / React
+dist/
+dist-ssr/
+*.local
+.cache/
+.DS_Store
+**/.vite
+
+# Testing
+coverage/
+.nyc_output/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environments
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Local development
+docker-compose.override.yml
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Python
+venv/
+ENV/
+env/
+band-b-env/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Database migrations (except initial)
+!/core/migrations/
+/core/migrations/*
+!/core/migrations/__init__.py

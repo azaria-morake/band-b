@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>{% block title %}{% if house %}Edit{% else %}Add{% endif %} Property{% endblock %}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <!-- Property Details -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label class="form-label">{{ form.title.label }}</label>
+                    {{ form.title }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">{{ form.price.label }}</label>
+                    {{ form.price }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">{{ form.address.label }}</label>
+                    {{ form.address }}
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label class="form-label">{{ form.amenities_text.label }}</label>
+                    {{ form.amenities_text }}
+                    <div class="form-text text-muted">
+                        {{ form.amenities_text.help_text }}
+                    </div>
+                </div>
+
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+            <label class="form-label">{{ form.description.label }}</label>
+            {{ form.description }}
+        </div>
+
+        <!-- Image Upload -->
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                Property Images
+            </div>
+            <div class="card-body">
+                <input type="file" name="images" multiple class="form-control">
+                <div class="form-text text-muted mt-2">
+                    Select up to 10 high-quality images of your property
+                </div>
+            </div>
+        </div>
+
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-lg btn-primary">Save Property</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    .amenities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+    .form-check {
+        padding: 0.5rem;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+    }
+    .form-check-input {
+        margin-right: 0.75rem;
+        transform: scale(1.25);
+    }
+</style>
+{% endblock %}
