@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'rest_framework',
+    'corsheaders',
 ]
 
 MEDIA_URL = '/media/'
@@ -45,6 +47,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # Vite dev server
+]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend/dist'),
 ]
 
 ROOT_URLCONF = 'band_b_backend.urls'
@@ -73,8 +84,12 @@ WSGI_APPLICATION = 'band_b_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bandb_admin',
+        'USER': 'bandb_user',
+        'PASSWORD': 'b@ndb_biz',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

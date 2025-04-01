@@ -3,6 +3,12 @@ from django.contrib.auth.decorators import login_required
 from .models import House, Amenity, HouseImage, UserProfile
 from .forms import HouseForm, HouseImageForm, UserProfileForm
 from django import forms
+from rest_framework import generics
+from .serializers import HouseSerializer
+
+class HouseList(generics.ListAPIView):
+    queryset = House.objects.all()
+    serializer_class = HouseSerializer
 @login_required
 def dashboard(request):
     houses = House.objects.filter(admin=request.user)

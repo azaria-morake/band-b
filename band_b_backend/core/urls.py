@@ -8,4 +8,5 @@ urlpatterns = [
     path('delete-house/<int:house_id>/', views.delete_house, name='delete_house'),
     path('delete-image/<int:image_id>/', views.delete_image, name='delete_image'),
     path('profile-settings/', views.profile_settings, name='profile_settings'),
+    path('api/houses/', views.HouseList.as_view()),
 ]
